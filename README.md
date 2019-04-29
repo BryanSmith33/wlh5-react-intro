@@ -1,68 +1,71 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React Intro
 
-## Available Scripts
+## React
 
-In the project directory, you can run:
+React is an open source framework originally developed by Facebook. It follows a component based architecture.
 
-### `npm start`
+## Component Based Architecture
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This means that your site is broken down into unique parts. This makes it easier to maintain and debug when an error occurs.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Parent - Child Data Flow
 
-### `npm test`
+Your React application should have a parent to child data flow meaning that data should flow down your app and not back up.
+This of your App.js as the main parent component and everything works down from there.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Component
 
-### `npm run build`
+There are two types of components in React; Function and Class based.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Class Based
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+These components should be where your logic is handled. They can have things like state and (soon to be taught) lifecycle methods. They generally look like this
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```jsx
+import React, {Component} from 'react'
 
-### `npm run eject`
+class MyComponent extends Component {
+  constructor(
+    super()
+    this.state = {}
+  )
+  render(){
+    return (
+      // JSX GOES HERE
+    )
+  }
+}
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+export default MyComponent
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Functional Components
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Should be treated as purely presentational (this will all change soon though). No access to state. Generally look like this
 
-## Learn More
+```jsx
+import React from 'react'
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+function MyComponent(){
+  return (
+      // JSX GOES HERE
+  )
+}
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+export default MyComponent
 
-### Code Splitting
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Import/Export
 
-### Analyzing the Bundle Size
+We can import components, files, etc. into our application via an import statement. This is similar to using a link tag in HTML but not quite the same.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+We export our component so we can make use of them in different components.
 
-### Making a Progressive Web App
+## State
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+Class based components have access to state. State is just data that is unique to our component. Think of it like the defaults for what our component needs. State should be treated as immutable.
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## JSX
+The representation of HTML in JavaScript. Stands for JavaScript XML
